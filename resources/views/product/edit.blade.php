@@ -1,6 +1,5 @@
 @extends('product.layout')
 @section('content')
-    <br><br><br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

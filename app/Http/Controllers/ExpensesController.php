@@ -152,9 +152,16 @@ class ExpensesController extends Controller
     }
     public  function  search(Request $request)
     {
+        $month = DB::Table('month')->get();
         $search=$request->get('search');
-        $sdata=DB::table('expenses')->where('exp_name','like','%'.$search.'%')->paginate(10);
-        $month=DB::Table('month')->get();
+        if ($search!='') {
+            $sdata = DB::table('expenses')->where('exp_name', 'like', '%' . $search . '%')->paginate(10);
+
+        }
+        else
+        {
+            $sdata=DB::Table('expenses')->where('expenses.date_id',$request['months'])->paginate(10);
+        }
         return view('expenses.index',['data'=>$sdata],['month'=>$month]);
     }
      /**

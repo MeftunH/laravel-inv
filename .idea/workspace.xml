@@ -28,18 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3347f52-e845-4455-b398-aaf5c61da90e" name="Default Changelist" comment="br modified">
-      <change afterPath="$PROJECT_DIR$/resources/views/expenses/myjs.blade.php" afterDir="false" />
+    <list default="true" id="e3347f52-e845-4455-b398-aaf5c61da90e" name="Default Changelist" comment="expenses edit,layout changes,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Expenses.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Expenses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_16_015404_create_expenses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_16_015404_create_expenses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/expenses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/expenses/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +217,7 @@
       <workItem from="1606974935846" duration="4942000" />
       <workItem from="1607096810702" duration="59424000" />
       <workItem from="1607416215257" duration="12545000" />
-      <workItem from="1607477827606" duration="4594000" />
+      <workItem from="1607477827606" duration="7210000" />
     </task>
     <task id="LOCAL-00001" summary="br modified">
       <created>1606810237700</created>
@@ -234,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606810237700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="expenses edit,layout changes,">
+      <created>1607493192938</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607493192938</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +265,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="br modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="br modified" />
+    <MESSAGE value="expenses edit,layout changes," />
+    <option name="LAST_COMMIT_MESSAGE" value="expenses edit,layout changes," />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="53" key="#Plugins" timestamp="1604622299489">
@@ -299,10 +299,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="599" y="282" key="VCS.EditChangelistDialog/0.0.1536.824@0.0.1536.824" timestamp="1606808226101" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1606810359128">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="451" y="178" key="Vcs.Push.Dialog.v2" timestamp="1607493200038">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606810359128" />
+    <state x="451" y="178" key="Vcs.Push.Dialog.v2/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607493200038" />
     <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606810319437">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -316,11 +317,11 @@
     </state>
     <state x="809" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606807512954" />
     <state x="1011" y="239" key="run.anything.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605731260973" />
-    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1607478128423">
+    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1607493477393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="814" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606809107315" />
-    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607478128423" />
+    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607493477393" />
     <state x="2734" y="148" width="672" height="685" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@1920.2.1536.832" timestamp="1606430145756" />
   </component>
 </project>

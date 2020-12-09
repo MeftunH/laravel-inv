@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -80,6 +81,6 @@
         @yield('content')
     </main>
 </div>
-
+@stack('scripts')
 </html>
 

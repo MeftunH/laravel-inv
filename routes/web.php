@@ -25,7 +25,9 @@ Route::get('products','ProductController@index')->name('product.index');
 Route::get('expenses','ExpensesController@index')->name('expenses.index');
 Route::get('/customer/index','CustomerController@index')->name('customer.index');
 Route::get('/create/{id?}','ProductController@create')->name('create.product');
+Route::get('delete/expenses/{id}','ExpensesController@delete');
 Route::get('/createexp/{id?}','ExpensesController@create')->name('create.expenses');
+//Route::get('/search','ExpensesController@search');
 Route::post('expstore','ExpensesController@store')->name('expenses.store');
 Route::post('store','ProductController@store')->name('product.store');
 //edit ucun

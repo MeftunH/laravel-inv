@@ -1,4 +1,4 @@
-@extends('customer.layout')
+@extends('expenses.layout')
 @section('content')
     <br><br><br>
     <div class="row">
@@ -72,13 +72,11 @@
                        min="2018-01-01" max="2025-12-31">
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
-                <div class="checkbox">
-                    <label>all
-                        <input type="checkbox" class="form-check-input" name="all" id="" value="1"> Hamisi Odenilib
 
-                    </label>
+            <div class="col-md-6 offset-md-4">
+                <div class="form-group row">
+                <div class="checkbox">
+                        <input type="checkbox" class="form-check-input" name="all" id="" value="1"> Hamisi Odenilib
                 </div>
             </div>
         </div>

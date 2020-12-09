@@ -14,12 +14,18 @@ class ExpensesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //$data= DB::Table('expenses')  ->whereMonth('date', '09')->paginate(10);
-        $data= DB::Table('expenses')->paginate(10);
+        $data= DB::Table('expenses')->get();
+        $month=DB::Table('month')->get();
+        $req=$request['months'];
+        if($request['months'])
+    {
+        $data=DB::Table('expenses')->where('expenses.date_id',$request['months'])->paginate(10);
 
-        return view('expenses.index',['data'=>$data]);
+    }
+        return view('expenses.index',['data'=>$data],['month'=>$month]);
     }
 
     /**
@@ -31,13 +37,50 @@ class ExpensesController extends Controller
     {
         return view('expenses.create');
     }
+    public function getMonthlySum(Carbon $date)
+    {
+        $year = $date->year;
+        $month = $date->month;
 
-    /**
+        if ($month < 10) {
+            $month = '0' . $month;
+        }
+
+        $search = $year . '-' . $month;
+
+        $revenues = parent::where('date', 'like', $search .'%')->get();
+
+        $sum = 0;
+        foreach ($revenues as $revenue) {
+            $sum += $revenue->revenue;
+        }
+
+        return $sum;
+    }    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+//    function action(Request $request)
+//    {
+//        if ($request->ajax())
+//        {
+//            $month=DB::Table('month')->get();
+//            $query=$request->get('query');
+//            if ($query!='')
+//            {
+//                $data=DB::table('expenses')->where('exp_name','like','%'.$request.'%')->paginate(10);
+//
+//            }
+//            else
+//            {
+//                $data=DB::table('expenses')->where('exp_name','like','%'.$request.'%')->paginate(10);
+//                   $month=DB::Table('month')->get();
+//            }
+//        }
+//    }
+
     public function store(Request $request)
     {
         $data = array();
@@ -51,6 +94,8 @@ class ExpensesController extends Controller
         $data['date']=$request->date;
         $data['exp_total_price'] =DB::raw('exp_number * exp_one_price');
         $data['amount'] =DB::raw('exp_total_price-amount');
+        $pieces = explode("-",$data['date']);
+        $data['date_id']=$pieces[1];
         $product = DB::table('expenses')->insert($data);
         return redirect()->route('expenses.index')->with('success', 'Elave Olundu');
     }
@@ -97,13 +142,21 @@ class ExpensesController extends Controller
         $data['date']=$request->date;
         $data['exp_total_price'] =DB::raw('exp_number * exp_one_price');
         $data['amount'] =DB::raw('exp_total_price-amount');
+        $pieces = explode("-",$data['date']);
+        $data['date_id']=$pieces[1];
         if($request['all']) {
             $data['paid']=$data['exp_total_price'];
         }
         $expenses=DB::table('expenses')->select('expenses.*')->where('expenses.id',$id)->update($data);
         return redirect()->route('expenses.index')->with('error', 'Duzelis Olundu');
     }
-
+    public  function  search(Request $request)
+    {
+        $search=$request->get('search');
+        $sdata=DB::table('expenses')->where('exp_name','like','%'.$search.'%')->paginate(10);
+        $month=DB::Table('month')->get();
+        return view('expenses.index',['data'=>$sdata],['month'=>$month]);
+    }
      /**
      * Remove the specified resource from storage.
      *
@@ -116,4 +169,6 @@ class ExpensesController extends Controller
         $expenses = DB::table('expenses')->where('id', $id)->delete();
         return redirect()->route('expenses.index')->with('danger', 'Silindi');
     }
+
+
 }

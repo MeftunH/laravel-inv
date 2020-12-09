@@ -9,11 +9,39 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3347f52-e845-4455-b398-aaf5c61da90e" name="Default Changelist" comment="first init" />
+    <list default="true" id="e3347f52-e845-4455-b398-aaf5c61da90e" name="Default Changelist" comment="br modified">
+      <change afterPath="$PROJECT_DIR$/resources/views/expenses/myjs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Expenses.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Expenses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_16_015404_create_expenses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_16_015404_create_expenses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/expenses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/expenses/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,17 +178,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\uniaksis-management\resources\views\expenses" />
+      <recent name="D:\laragon\www\uniaksis-management\resources\views\customer" />
+      <recent name="D:\laragon\www\uniaksis-management\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\uniaksis-management\resources\views\customer" />
       <recent name="D:\laragon\www\uniaksis-management\resources\views\product" />
       <recent name="D:\laragon\www\uniaksis-management\resources\views" />
       <recent name="D:\laragon\www\uniaksis-management\public\images" />
       <recent name="D:\laragon\www\uniaksis-management\public\unitextil" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\uniaksis-management\resources\views\expenses" />
-      <recent name="D:\laragon\www\uniaksis-management\resources\views\customer" />
-      <recent name="D:\laragon\www\uniaksis-management\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -192,8 +220,21 @@
       <workItem from="1606807784863" duration="36000" />
       <workItem from="1606807831503" duration="1089000" />
       <workItem from="1606809051827" duration="56000" />
-      <workItem from="1606809229341" duration="376000" />
+      <workItem from="1606809229341" duration="2701000" />
+      <workItem from="1606858554864" duration="2079000" />
+      <workItem from="1606974935846" duration="4942000" />
+      <workItem from="1607096810702" duration="59424000" />
+      <workItem from="1607416215257" duration="12545000" />
+      <workItem from="1607477827606" duration="4594000" />
     </task>
+    <task id="LOCAL-00001" summary="br modified">
+      <created>1606810237700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606810237700</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,12 +245,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="br modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="br modified" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="53" key="#Plugins" timestamp="1604622299489">
@@ -220,12 +277,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1170" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605492225652" />
-    <state x="2702" y="198" key="FileChooserDialogImpl" timestamp="1605630354125">
+    <state x="2702" y="198" key="FileChooserDialogImpl" timestamp="1607390399170">
       <screen x="1920" y="2" width="1536" height="832" />
     </state>
     <state x="782" y="194" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605596525280" />
-    <state x="977" y="245" key="FileChooserDialogImpl/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605443634065" />
-    <state x="2702" y="198" key="FileChooserDialogImpl/1920.2.1536.832/0.0.1920.1040@1920.2.1536.832" timestamp="1605630354125" />
+    <state x="977" y="245" key="FileChooserDialogImpl/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607190542576" />
+    <state x="2702" y="198" key="FileChooserDialogImpl/1920.2.1536.832/0.0.1920.1040@1920.2.1536.832" timestamp="1607390399170" />
     <state x="618" y="314" key="Github.ShareDialog" timestamp="1606808245092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -242,10 +299,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="599" y="282" key="VCS.EditChangelistDialog/0.0.1536.824@0.0.1536.824" timestamp="1606808226101" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1606807583407">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1606810359128">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606807583407" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606810359128" />
+    <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606810319437">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1606810319437" />
     <state x="43" y="0" width="1893" height="1022" key="dock-window-1" timestamp="1606769409356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -255,11 +316,11 @@
     </state>
     <state x="809" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606807512954" />
     <state x="1011" y="239" key="run.anything.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605731260973" />
-    <state x="814" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606809107315">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1607478128423">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="814" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606809107315" />
-    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606769397831" />
+    <state x="1018" y="183" width="840" height="856" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607478128423" />
     <state x="2734" y="148" width="672" height="685" key="search.everywhere.popup/1920.2.1536.832/0.0.1920.1040@1920.2.1536.832" timestamp="1606430145756" />
   </component>
 </project>

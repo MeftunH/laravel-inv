@@ -1,34 +1,91 @@
-@extends('product.layout')
+@extends('expenses.layout')
 @section('content')
-    <br><br><br>
+    @include('expenses.myjs')
+    <br>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous">
 
-    <select name="month" id="month" class="form-control">
-        <option value="jan"  @if (old('month') == "jan") {{ 'selected' }} @endif>Yanvar</option>
-        <option value="feb"  @if (old('month') == "feb") {{ 'selected' }} @endif>Fevral</option>
-        <option value="mar">Mart</option>
-        <option value="apr">Aprel</option>
-        <option value="may">May</option>
-        <option value="jun">Iyun</option>
-        <option value="jul">Iyul</option>
-        <option value="aug">Avqust</option>
-        <option value="sep">Sentyabr</option>
-        <option value="oct">Oktyabr</option>
-        <option value="nov">Noyabr</option>
-        <option value="dec">Dekabr</option>
-    </select>
+            $(document.ready(function ()
+            {
+              $.ajax(
+                  {
+                      url:"{{route('search.action')}}",
+                      method:'Get',
+                      data:{query:query},
+                      success:function (data)
+                      {
+                          $('tbody').html(data.table_data);
+                          $('#total_records').text(data.total_data);
+                      }
+                  })
+            }))
+
+        </script>
+    </head>
 
     <div class="row">
+    <div class="col-lg-1 margin-tb">
+
+        <select onchange="window.location='<?php echo URL::to( Request::path());?>'+this.options[this.selectedIndex].value" name="months" class="form-control">
+            <option selected disabled>Ay sec</option>
+
+            @foreach ($month as $months)
+                {{$sum=DB::Table('expenses')->sum('exp_total_price')}}
+                <option id="months{{$months->id}}" value="?months={{( $months->id) }}"
+                @if(request('months')==$months->id) selected @endif
+                > {{ $months->name }} </option>
+            @endforeach
+
+    </select>
+
+
+
+
+        </div>
+        <div class="col-md-2">
+            <label>Toplam Xerc:</label>
+            <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('exp_total_price')}}AZN>
+
+        </div>
+
+        <div class="col-md-2">
+            <label>Toplam Odenilmis:</label>
+            <input type="text" readonly  style="color:green;" name="total" class="form-control margin-tbr" value={{$sum_paid=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('paid')}}AZN>
+        </div>
+
+        <div class="col-md-2">
+            <label>Toplam qalan:</label>
+            <input type="text" readonly  style="color:red;" name="total" class="form-control margin-tbr" value={{$sum_amount=$sum-$sum_paid}}AZN>
+
+    </div>
+{{--        <div class="col-md-3 col-md-push-2">--}}
+{{--            <div class="pull-right">--}}
+{{--            <form action="/search" method="get">--}}
+{{--                <div class="input-group">--}}
+{{--                    <input type="search" name="search" class="form-control">--}}
+{{--                    <span class="input-group-prepend">--}}
+{{--                   <button type="submit" class="btn btn-primary">Axtar</button>--}}
+{{--               </span>--}}
+{{--                </div>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Xercler</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('create.expenses')}}">Yeni Xerc elave et</a>
-
             </div>
 
         </div>
-    </div>
+
+
     @if($message=Session::get('success'))
         <div class="alert alert-success">
             <p>{{$message}}</p>
@@ -49,7 +106,6 @@
 
     <table class="table table-bordered col-md-4" style="border-width: 1px">
         <tr>
-
             <th width="10%">
                 Xercin Adi
             </th>
@@ -86,11 +142,11 @@
             <th width="10px"  style="text-align:center">
                 Hereketler
             </th>
-
-
         </tr>
+
         @foreach($data as $exp)
             <tr>
+
                 <td>
                     {{$exp->exp_name}}
                 </td>
@@ -113,8 +169,9 @@
                 <td>
                     {{$exp->exp_detail}}
                 </td>
+
                 <td>
-                    {{$exp->date}}
+                    {{date('d M Y  ', strtotime($exp->date))}}
                 </td>
                 <td>
                     @if($exp->amount==0)
@@ -139,3 +196,5 @@
             </tr>
     </table>
 @endsection
+
+

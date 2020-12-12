@@ -37,26 +37,7 @@ class ExpensesController extends Controller
     {
         return view('expenses.create');
     }
-    public function getMonthlySum(Carbon $date)
-    {
-        $year = $date->year;
-        $month = $date->month;
-
-        if ($month < 10) {
-            $month = '0' . $month;
-        }
-
-        $search = $year . '-' . $month;
-
-        $revenues = parent::where('date', 'like', $search .'%')->get();
-
-        $sum = 0;
-        foreach ($revenues as $revenue) {
-            $sum += $revenue->revenue;
-        }
-
-        return $sum;
-    }    /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

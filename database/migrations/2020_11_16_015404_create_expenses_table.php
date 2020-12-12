@@ -23,7 +23,6 @@ class CreateExpensesTable extends Migration
             $table->float('amount')->nullable();
             $table->string('exp_detail')->nullable();
             $table->integer('date_id')->nullable();
-            $table->integer('year_id')->nullable();
             $table->date('date');
             $table->timestamps();
         });

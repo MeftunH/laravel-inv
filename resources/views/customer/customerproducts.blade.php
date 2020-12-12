@@ -1,6 +1,24 @@
-@extends('product.layout')
+@extends('layouts.app')
 @section('content')
-    <br><br><br>
+    <br><br>
+<div class="row">
+    <div class="col-md-2">
+        <label>Toplam Mebleg:</label>
+        <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$pro_sum}}AZN>
+
+    </div>
+
+    <div class="col-md-2">
+        <label>Musterinin Toplam Odenisi:</label>
+        <input type="text" readonly  style="color:green;" name="total" class="form-control margin-tbr" value={{$pro_sum_paid}}AZN>
+    </div>
+
+    <div class="col-md-2">
+        <label>Musterinin Qalan borcu:</label>
+        <input type="text" readonly  style="color:red;" name="total" class="form-control margin-tbr" value={{$pro_sum_amount=$pro_sum-$pro_sum_paid}}AZN>
+
+    </div>
+    </div>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -58,6 +76,12 @@
 
             <th width="5%">
                 Malin Toplam Qiymeti
+            </th>
+            <th width="5%">
+               Odenilen
+            </th>
+            <th width="5%">
+                Qalan
             </th>
 
             <th width="15%">
@@ -136,6 +160,25 @@
                 <td>
                     {{$pro->total_price}}
                 </td>
+                <td>
+                    <p> {{$pro->paid}} AZN</p>
+                </td>
+                <td>
+                    <p hidden>
+                        {{$pro->amount=$pro->total_price-$pro->paid}}
+                    </p>
+                    @if($pro->amount==0)
+
+                        <p style="color:green;">Tam Odenis</p>
+
+                    @endif
+                    @if($pro->amount!=0)
+
+                        <p style="color:red;">{{$pro->amount}} AZN</p>
+
+                    @endif
+                </td>
+
 
                 <td>
                     {{$pro->details}}

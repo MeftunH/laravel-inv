@@ -19,11 +19,14 @@ class CreateProductsTable extends Migration
                 $table->bigInteger('customer_id')->unsigned();
                 $table->string('product_name');
                 $table->float('product_number');
+                $table->float('paid')->nullable();
+                $table->float('amount')->nullable();
                 $table->string('details')->nullable();
                 $table->float('one_price');
                 $table->float('total_price');
                 $table->string('order_time');
                 $table->string('dead_line')->nullable();
+                $table->integer('date_id')->nullable();
                 $table->boolean('status');
                 $table->timestamps();
             });

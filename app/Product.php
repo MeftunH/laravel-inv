@@ -13,7 +13,7 @@ class Product extends Model
 }
     protected $fillable = [
         'customer_id,product_name, product_number,
-        details, one_price,total_price,product_name, order_time, dead_line,status',
+        details, one_price,total_price,product_name, order_time, dead_line,status','date_id','paid','date',
     ];
 
 

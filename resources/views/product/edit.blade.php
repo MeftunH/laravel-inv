@@ -1,4 +1,4 @@
-@extends('product.layout')
+@extends('layouts.app')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -50,6 +50,13 @@
                     <strong>Malin qiymeti(1 eded):</strong>
                     <input type="text" name="one_price" class="form-control"
                            value="{{$product->one_price}}">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div  class="form-group">
+                    <strong>Odenilmis Mebleg:</strong>
+                    <input type="text" name="paid" class="form-control"
+                           value="{{$product->paid}}">
                 </div>
             </div>
 

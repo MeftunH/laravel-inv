@@ -10,14 +10,24 @@ use mysql_xdevapi\Table;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $product = DB::table('products')->latest()->paginate(10);
         $data= DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')
             ->paginate(10);
-        return view('product.index', compact('data'));
+        $month=DB::Table('month')->get();
+        $req=$request['months'];
+        if($request['months'])
+        {
+            $data= DB::table('customers')
+                ->join('products','customers.id','=','products.customer_id')
+                ->select('customers.*','products.*')->where('products.date_id',$request['months'])
+                ->paginate(10);
+
+        }
+        return view('product.index',['data'=>$data],['month'=>$month]);
     }
 
 
@@ -41,9 +51,13 @@ class ProductController extends Controller
         $data['total_price'] = $request->total_price;
         $data['order_time'] = $request->order_time;
         $data['dead_line'] = $request->dead_line;
+        $data['paid'] = $request->paid;
+        $data['amount'] = $request->amount;
+        $data['amount'] =DB::raw('total_price-amount');
         $data['status'] = $request->status;
         $data['total_price'] =DB::raw('product_number * one_price');
-
+        $pieces = explode("-",$data['order_time']);
+        $data['date_id']=$pieces[1];
         $product = DB::table('products')->insert($data);
         return redirect()->route('product.index')->with('success', 'Elave Olundu');
     }
@@ -65,10 +79,15 @@ class ProductController extends Controller
         $data['product_number'] = $request->product_number;
         $data['details'] = $request->details;
         $data['one_price'] = $request->one_price;
+        $data['paid'] = $request->paid;
+        $data['amount'] = $request->amount;
         $data['total_price'] = $request->total_price;
         $data['order_time'] = $request->order_time;
         $data['dead_line'] = $request->dead_line;
         $data['status'] = $request->status;
+        $data['amount'] =DB::raw('total_price-amount');
+        $pieces = explode("-",$data['order_time']);
+        $data['date_id']=$pieces[1];
         $data['total_price'] =DB::raw('product_number * one_price');
         $product =  DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')

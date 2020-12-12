@@ -1,6 +1,5 @@
-@extends('expenses.layout')
+@extends('layouts.app')
 @section('content')
-    @include('expenses.myjs')
     <br>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -42,15 +41,13 @@
             @endforeach
 
     </select>
-
-
-
-
         </div> <label>Toplam Xerc:</label>
         <div class="col-md-2">
-
-            <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('exp_total_price')}}AZN>
-
+            @if(request('months')==NULL)
+                <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum=DB::Table('expenses')->sum('exp_total_price')}}AZN>
+            @else
+                <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('exp_total_price')}}AZN>
+            @endif
         </div>
         <label>Toplam Odenis:</label>
         <div class="col-md-2">
@@ -68,7 +65,7 @@
             <form action="/search" method="get">
                 <div class="input-group">
                     <input type="search" name="search" class="form-control">
-                    <span class="input-group-prepend">
+                    <span class="row-cols-md-4">
                    <button type="submit" class="btn btn-primary">Axtar</button>
                </span>
                 </div>
@@ -130,7 +127,7 @@
             </th>
 
             <th width="15%">
-                Qalan mebleg
+                Borc
             </th>
 
             <th width="15%">
@@ -184,7 +181,7 @@
                         @endif
                         @if($exp->amount!=0)
 
-                            <p style="color:red;">Qalan Mebleg {{$exp->amount}} AZN</p>
+                            <p style="color:red;">Toplam Borc {{$exp->amount}} AZN</p>
 
                         @endif
 

@@ -1,4 +1,4 @@
-@extends('expenses.layout')
+@extends('layouts.app')
 @section('content')
     <!DOCTYPE html>
 <html>

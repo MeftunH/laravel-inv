@@ -1,6 +1,49 @@
-@extends('product.layout')
+@extends('layouts.app')
 @section('content')
-    <br><br><br>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-1 margin-tb" style="margin-top: 5px">
+
+            <select onchange="window.location='<?php echo URL::to( Request::path());?>'+this.options[this.selectedIndex].value" name="months" class="form-control">
+                <option selected disabled>Ay sec</option>
+
+                @foreach ($month as $months)
+
+                    <option id="months{{$months->id}}" value="?months={{( $months->id) }}"
+                            @if(request('months')==$months->id) selected @endif
+                    > {{ $months->name }} </option>
+                @endforeach
+
+            </select>
+        </div> <label>Toplam Xerc:</label>
+        <div class="col-md-2">
+
+            <input type="text" readonly  name="total" class="form-control margin-tbr"
+                   @if(request('months')==NULL)
+                   value={{$pro_sum=DB::Table('products')->sum('total_price')}}AZN
+                   @else
+                   value={{$pro_sum=DB::Table('products')->whereMonth('order_time', request('months') ?? '')->sum('total_price')}}AZN
+                   @endif
+            >
+
+        </div>
+        <label>Toplam Odenis:</label>
+        <div class="col-md-2">
+            @if(request('months')==NULL)
+                <input type="text" readonly  style="color:green;" name="total" class="form-control margin-tbr" value={{$pro_sum_paid=DB::Table('products')->sum('paid')}}AZN>
+            @else
+            <input type="text" readonly  style="color:green;" name="total" class="form-control margin-tbr" value={{$pro_sum_paid=DB::Table('products')->whereMonth('order_time', request('months') ?? '')->sum('paid')}}AZN>
+       @endif
+        </div>
+        <label>Toplam qalan:</label>
+        <div class="col-md-2">
+
+            <input type="text" readonly  style="color:red;" name="total" class="form-control margin-tbr" value={{$pro_sum_amount=$pro_sum-$pro_sum_paid}}AZN>
+
+        </div>
+    </div>
+    <br>
+
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
@@ -37,7 +80,6 @@
                 Malin Adi
             </th>
 
-
             <th width="10%">
                 Musteri Adi
             </th>
@@ -51,16 +93,19 @@
             <th width="5%">
                 Bir Ededin Qiymeti
             </th>
-
-            <th width="5%">
-                Sifarisin Toplam Meblegi
+            <th width="10%">
+                Toplam qiymet
             </th>
+            <th width="10%">
+                Odenilmis
+            </th>
+            <th width="15%">
+                Qalan
+            </th>
+
             <th width="15%">
                 Elaveler
             </th>
-
-
-
             <th width="10%">
                 Sifaris Verildiyi Tarix
             </th>
@@ -128,11 +173,30 @@
                 {{$pro->product_number}}
             </td>
             <td>
-                {{$pro->one_price}}
+              <p>{{$pro->one_price}} AZN</p>
             </td>
 
             <td>
                 {{$pro->total_price}}
+            </td>
+
+            <td>
+                <p> {{$pro->paid}} AZN</p>
+            </td>
+            <td>
+                <p hidden>
+                    {{$pro->amount=$pro->total_price-$pro->paid}}
+                    </p>
+                @if($pro->amount==0)
+
+                    <p style="color:green;">Tam Odenis</p>
+
+                @endif
+                    @if($pro->amount!=0)
+
+                        <p style="color:red;">{{$pro->amount}} AZN</p>
+
+                    @endif
             </td>
 
 

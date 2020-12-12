@@ -1,4 +1,4 @@
-@extends('customer.layout')
+@extends('layouts.app')
 @section('content')
 <br>
     <div class="">
@@ -14,6 +14,9 @@
                 </th>
                 <th width="10px"  style="text-align:center">
                     Musteri Telefonu
+                </th>
+                <th width="10px"  style="text-align:center">
+                    Vezifesi
                 </th>
                 <th width="10px"  style="text-align:center">
                    Hereketler

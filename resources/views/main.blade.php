@@ -4,7 +4,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('Laravel', 'Uniaksis') }}</title>
+    <title>{{ config('Laravel', 'Inventory') }}</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 

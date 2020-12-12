@@ -1,4 +1,4 @@
-@extends('product.layout')
+@extends('layouts.app')
 @section('content')
     <br><br><br>
     <div class="row">
@@ -61,13 +61,19 @@
                 <input type="text" name="one_price" class="form-control">
             </div>
         </div>
-
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div  class="form-group">
+                <strong>Odenilmis mebleg:</strong>
+                <input type="text" name="paid" class="form-control"
+                       placeholder="Odenilmis meblegi bura daxil edin.(Bos buraxilabiler) ">
+            </div>
+        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 15px">
             <div  class="form-group">
                 <strong>Sifaris Tarixi:</strong>
                 <input type="date" id="start" name="order_time"
-                       value="2020-11-09"
+                       value="today"
                        min="2018-01-01" max="2025-12-31">
             </div>
         </div>
@@ -77,11 +83,10 @@
             <div  class="form-group">
                 <strong>Catdirilmasi Tarixi:</strong>
                 <input type="date" id="start" name="dead_line"
-                       value="2020-11-09"
+                       value="today"
                        min="2018-01-01" max="2025-12-31">
             </div>
         </div>
-
 
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">

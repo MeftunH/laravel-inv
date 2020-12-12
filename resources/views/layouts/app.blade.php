@@ -43,7 +43,7 @@
                         <a class="nav-link" href="/expenses">Xercler</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="employes/index">Isciler</a>
+                        <a class="nav-link" href="/employes/index">Isciler</a>
                     </li>
                     @guest
 

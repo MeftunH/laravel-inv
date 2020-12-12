@@ -14,9 +14,8 @@
         </div>
     </div>
 
-    <form method="POST" enctype="multipart/form-data" action="{{url('editemp/'.$employes->id)}}" >
+    <form action="{{url('update/employes/'.$employes->id)}}" method="POST" >
         @csrf
-
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div  class="form-group">
                 <strong>Iscinim Adi:</strong>

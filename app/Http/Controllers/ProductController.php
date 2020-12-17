@@ -64,17 +64,22 @@ class ProductController extends Controller
 
     public function Edit($id)
     {
+
         $product = DB::table('products')->where('id', $id)->first();
+        $customer=Customer::orderBy('customer_name', 'ASC')->get();
         $data= DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')
             ->first();
-        return view('product.edit', compact('product','data'));
+        $cst_id=DB::table('products')->select('customer_id')->where('id', $id)->first();
+        //dd(request('customer_id'));
+        return view('product.edit', compact('product','data','customer','cst_id'));
     }
 
     public function Update(Request $request, $id)
     {
         $data = array();
+        $data['customer_id'] = $request->customer_id;
         $data['product_name'] = $request->product_name;
         $data['product_number'] = $request->product_number;
         $data['details'] = $request->details;

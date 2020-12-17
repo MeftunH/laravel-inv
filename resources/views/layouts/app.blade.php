@@ -45,6 +45,9 @@
                     <li>
                         <a class="nav-link" href="/employes/index">Isciler</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="/salaries">Maaslar</a>
+                    </li>
                     @guest
 
                         <li class="nav-item">

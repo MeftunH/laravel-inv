@@ -19,7 +19,7 @@
                     Telefon nomresi
                 </th>
                 <th width="10px"  style="text-align:center">
-
+                Vezifesi
                 </th>
                 <th width="10px"  style="text-align:center">
                     Hereketler
@@ -40,10 +40,11 @@
                     <td  style="text-align:center">
                         <a href="{{route('customerproduct', ['id' => $item->id])}}">{{$item->department}} </a>
                     </td>
+
                     <td>
                         <a class="btn btn-info" href="{{URL::to('/customerproduct/' .$item->id) }}">Goster</a>
                         <a class="btn btn-primary" href="{{URL::to('editemp/' .$item->id) }}">Duzelis Et</a>
-                        <a class="btn btn-danger" href="{{URL::to('delete/customer/' .$item->id) }}"
+                        <a class="btn btn-danger" href="{{URL::to('delete/employes/' .$item->id) }}"
                            onclick="return confirm('Musteri silindiyi teqdirde onun verdiyi butun sifarisler de silinecekdir.Silmek istediyinize eminsiniz?')">Sil</a>
                     </td>
                 </tr>

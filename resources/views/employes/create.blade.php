@@ -20,7 +20,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div  class="form-group">
                     <strong>Isci Adi:</strong>
-                    <input type="text" name="employe_name" class="form-control"
+                    <input type="text" name="name" class="form-control"
                            placeholder="Isci adini bura daxil edin ">
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div  class="form-group">
                         <strong>Isci soyadi:</strong>
-                        <input type="text" name="employe_surname" class="form-control"
+                        <input type="text" name="surname" class="form-control"
                                placeholder="Isci soyadini bura daxil edin.Bos buraxilebiler">
                     </div>
                 </div>

@@ -24,9 +24,16 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div  class="form-group">
-                    <strong>Musteri Adi:</strong>
-                    <input type="text" name="customer_name" class="form-control"
-                           value="{{$data->customer_name}}">
+                    <label for="customer_id">Musteri Adi</label>
+                    <select name="customer_id" id="customer_id" class="form control input-sm">
+                        @foreach($customer as $cst)
+                            <option
+                                value="{{$cst->id}}"
+                                {{$cst_id==$cst->id ? 'selected="selected"' : '' }}
+                            >
+                                {{$cst->customer_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">

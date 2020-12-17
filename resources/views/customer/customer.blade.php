@@ -16,9 +16,6 @@
                     Musteri Telefonu
                 </th>
                 <th width="10px"  style="text-align:center">
-                    Vezifesi
-                </th>
-                <th width="10px"  style="text-align:center">
                    Hereketler
                 </th>
             </tr>

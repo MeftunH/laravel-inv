@@ -62,18 +62,19 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Elave Olundu');
     }
 
-    public function Edit($id)
+    public function Edit($id,Request $request)
     {
 
         $product = DB::table('products')->where('id', $id)->first();
         $customer=Customer::orderBy('customer_name', 'ASC')->get();
+
         $data= DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')
             ->first();
-        $cst_id=DB::table('products')->select('customer_id')->where('id', $id)->first();
-        //dd(request('customer_id'));
-        return view('product.edit', compact('product','data','customer','cst_id'));
+        // dd($customer);
+
+        return view('product.edit', compact('product','data','customer','cst'));
     }
 
     public function Update(Request $request, $id)

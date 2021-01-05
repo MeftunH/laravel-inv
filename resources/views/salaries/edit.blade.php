@@ -27,9 +27,9 @@
                     <label for="employes_id">Iscinin Adi</label>
                     <select name="employes_id" id="employes_id" class="form control input-sm">
                         @foreach($emp as $empln)
-                            <option
-                                value="{{$empln->id}}">
-                                {{$empln->name}}</option>
+                            <option value="{{$empln->id}}"
+                                @if($salaries->employes_id==$empln->id) selected @endif
+                                    > {{$empln->name}}</option>
                         @endforeach
                     </select>
                 </div>

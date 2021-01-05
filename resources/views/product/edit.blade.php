@@ -27,11 +27,9 @@
                     <label for="customer_id">Musteri Adi</label>
                     <select name="customer_id" id="customer_id" class="form control input-sm">
                         @foreach($customer as $cst)
-                            <option
-                                value="{{$cst->id}}"
-                                {{$cst_id==$cst->id ? 'selected="selected"' : '' }}
-                            >
-                                {{$cst->customer_name}}</option>
+                                <option value="{{$cst->id}}"
+                                        @if($product->customer_id==$cst->id) selected @endif
+                                > {{$cst->customer_name}}</option>
                         @endforeach
                     </select>
                 </div>

@@ -56,3 +56,4 @@ Route::get("/customer","CustomerController@view");
 Route::get('/edit-product/{product}','ProductController@edit');
 Route::put('/edit-product/{product}','ProductController@update');
 Route::get('/customerproduct/{id?}',"CustomerProduct@index")->name('customerproduct');
+Route::get('/employessalaries/{id?}',"EmployesSalary@index")->name('employessalaries');

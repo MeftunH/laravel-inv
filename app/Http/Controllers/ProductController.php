@@ -67,7 +67,6 @@ class ProductController extends Controller
 
         $product = DB::table('products')->where('id', $id)->first();
         $customer=Customer::orderBy('customer_name', 'ASC')->get();
-
         $data= DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')
@@ -95,9 +94,12 @@ class ProductController extends Controller
         $pieces = explode("-",$data['order_time']);
         $data['date_id']=$pieces[1];
         $data['total_price'] =DB::raw('product_number * one_price');
+
         $product =  DB::table('customers')
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')->where('products.id', $id)->update($data);
+        //dd($product);
+        dd($data);
         return redirect()->route('product.index')->with('error', 'Duzelis Olundu');
     }
 

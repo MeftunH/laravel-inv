@@ -42,7 +42,7 @@
                     </td>
 
                     <td>
-                        <a class="btn btn-info" href="{{URL::to('/customerproduct/' .$item->id) }}">Goster</a>
+                        <a class="btn btn-info" href="{{URL::to('/employessalaries/' .$item->id) }}">Goster</a>
                         <a class="btn btn-primary" href="{{URL::to('editemp/' .$item->id) }}">Duzelis Et</a>
                         <a class="btn btn-danger" href="{{URL::to('delete/employes/' .$item->id) }}"
                            onclick="return confirm('Musteri silindiyi teqdirde onun verdiyi butun sifarisler de silinecekdir.Silmek istediyinize eminsiniz?')">Sil</a>

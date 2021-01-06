@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <form action="{{url('update/salaries/'.$data->id)}} " method="POST" enctype="multipart/form-data">
+    <form action="{{url('update/salaries/'.$salaries->id)}} " method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
@@ -24,11 +24,11 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div  class="form-group">
-                    <label for="employes_id">Iscinin Adi</label>
+                    <label for="name">Iscinin Adi</label>
                     <select name="employes_id" id="employes_id" class="form control input-sm">
                         @foreach($emp as $empln)
                             <option value="{{$empln->id}}"
-                                @if($salaries->employes_id==$empln->id) selected @endif
+                              {{ $salaries->employes_id==$empln->id ?'selected="selected"' : '' }}
                                     > {{$empln->name}}</option>
                         @endforeach
                     </select>

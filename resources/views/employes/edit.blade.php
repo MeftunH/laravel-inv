@@ -26,7 +26,7 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div  class="form-group">
-                <strong>Iscinim Soyadi:</strong>
+                <strong>Iscinin Soyadi:</strong>
                 <input type="text" name="surname" class="form-control"
                        value="{{$employes->surname}}">
             </div>

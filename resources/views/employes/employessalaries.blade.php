@@ -14,14 +14,15 @@
                 @endforeach
 
             </select>
-        </div> <label>Toplam Xerc:</label>
+        </div>
+        <label>Toplam Xerc:</label>
         <div class="col-md-2">
 
             <input type="text" readonly  name="total" class="form-control margin-tbr"
                    @if(request('months')==NULL)
-                   value={{$pro_sum=DB::Table('salaries')->sum('sal_total_price')}}AZN
+                   value={{$pro_sum}}AZN
                    @else
-                   value={{$pro_sum=DB::Table('salaries')->whereMonth('date', request('months') ?? '')->sum('sal_total_price')}}AZN
+                   value={{$pro_sum=DB::Table('salaries')->where('salaries.employes_id',$id)->where('salaries.date_id',request('months'))->sum('sal_total_price')}}AZN
                 @endif
             >
 
@@ -29,9 +30,9 @@
         <label>Toplam Odenis:</label>
         <div class="col-md-2">
             @if(request('months')==NULL)
-                <input type="text" readonly  style="color:green;" name="sal_total" class="form-control margin-tbr" value={{$pro_sum_paid=DB::Table('salaries')->sum('paid')}}AZN>
+                <input type="text" readonly  style="color:green;" name="sal_total" class="form-control margin-tbr" value={{$pro_sum_paid}}AZN>
             @else
-                <input type="text" readonly  style="color:green;" name="sal_total" class="form-control margin-tbr" value={{$pro_sum_paid=DB::Table('salaries')->whereMonth('date', request('months') ?? '')->sum('paid')}}AZN>
+                <input type="text" readonly  style="color:green;" name="sal_total" class="form-control margin-tbr" value={{ $pro_sum_paid=DB::Table('salaries')->where('salaries.employes_id',$id)->where('salaries.date_id',request('months'))->sum('paid')}}AZN>
             @endif
         </div>
         <label>Toplam qalan:</label>
@@ -41,19 +42,7 @@
 
         </div>
     </div>
-    <div class="col-md-2" style="margin-top: 3px">
-        <div class="pull-right">
-            <form action="/search" method="get">
-                <div class="input-group">
-                    <input type="search" name="search" class="form-control">
-                    <span class="row-cols-md-4">
-                   <button type="submit" class="btn btn-primary">Axtar</button>
-               </span>
-                </div>
-            </form>
-        </div>
-    </div>
-    </div>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

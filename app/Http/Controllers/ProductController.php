@@ -99,7 +99,7 @@ class ProductController extends Controller
             ->join('products','customers.id','=','products.customer_id')
             ->select('customers.*','products.*')->where('products.id', $id)->update($data);
         //dd($product);
-        dd($data);
+        //dd($data);
         return redirect()->route('product.index')->with('error', 'Duzelis Olundu');
     }
 

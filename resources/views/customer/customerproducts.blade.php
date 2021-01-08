@@ -1,7 +1,20 @@
 @extends('layouts.app')
 @section('content')
-    <br><br>
 <div class="row">
+    <div class="col-lg-1 margin-tb" style="margin-top: 5px">
+
+        <select onchange="window.location='<?php echo URL::to( Request::path());?>'+this.options[this.selectedIndex].value" name="months" class="form-control">
+            <option selected disabled>Ay sec</option>
+
+            @foreach ($month as $months)
+
+                <option id="months{{$months->id}}" value="?months={{( $months->id) }}"
+                        @if(request('months')==$months->id) selected @endif
+                > {{ $months->name }} </option>
+            @endforeach
+
+        </select>
+    </div>
     <div class="col-md-2">
         <label>Toplam Mebleg:</label>
         <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$pro_sum}}AZN>

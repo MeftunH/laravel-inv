@@ -51,8 +51,12 @@
         </div>
         <label>Toplam Odenis:</label>
         <div class="col-md-2">
+            @if(request('months')==NULL)
+                <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum_paid=DB::Table('expenses')->sum('paid')}}AZN>
+            @else
+                <input type="text" readonly  name="total" class="form-control margin-tbr" value={{$sum_paid=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('paid')}}AZN>
+            @endif
 
-            <input type="text" readonly  style="color:green;" name="total" class="form-control margin-tbr" value={{$sum_paid=DB::Table('expenses')->whereMonth('date', request('months') ?? '')->sum('paid')}}AZN>
         </div>
         <label>Toplam qalan:</label>
         <div class="col-md-2">

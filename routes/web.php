@@ -26,6 +26,7 @@ Route::post('/employes/store','EmployesController@store')->name('employes.store'
 Route::get('products','ProductController@index')->name('product.index');
 Route::get('salaries','SalariesController@index')->name('salaries.index');
 Route::get('expenses','ExpensesController@index')->name('expenses.index');
+Route::get('balance','BalanceController@index')->name('balance.index');
 Route::get('/customer/index','CustomerController@index')->name('customer.index');
 Route::get('/employes/index','EmployesController@index')->name('employes.index');
 Route::get('/create/{id?}','ProductController@create')->name('create.product');
@@ -34,6 +35,7 @@ Route::get('/sal/create/{id?}','SalariesController@create')->name('create.salari
 Route::get('delete/expenses/{id}','ExpensesController@delete');
 Route::get('/createexp/{id?}','ExpensesController@create')->name('create.expenses');
 Route::get('/search','ExpensesController@search');
+Route::get('/searchempsal','EmployesSalary@searchempsal');
 Route::post('expstore','ExpensesController@store')->name('expenses.store');
 Route::post('store','ProductController@store')->name('product.store');
 Route::get('edit/product/{id}','ProductController@Edit');

@@ -21,16 +21,18 @@ class CustomerProduct extends Controller
         $req=$request['months'];
         if($request['months'])
         {
-            $data=DB::Table('expenses')->where('expenses.date_id',$request['months'])->paginate(10);
+            $pro_sum=DB::Table('products')->where('products.customer_id',$id)->where('products.date_id',$request['months'])->sum('total_price');
+            $pro_sum_paid=DB::Table('products')->where('products.customer_id',$id)->where('products.date_id',$request['months'])->sum('paid');
+            $data= DB::Table('customers')
+                ->select('customers.*','products.*')
+                ->join('products','customers.id','products.customer_id')
+                ->where([
+                    ['products.date_id',$request['months']],
+                    ['customers.id',$id],
+                ])->paginate(10);
 
         }
 
-        if($data->isEmpty())
-        {
-            abort(404,"Hele ki musteri terefinden hecbir sifaris verilmeyib");
-
-        }
-else
 return view('customer.customerproducts', compact('id','data','month','pro_sum','pro_sum_paid'));
 }
 }

@@ -109,10 +109,11 @@
             <th width="10%">
                 Tarix
             </th>
-
+            @role('admin')
             <th width="30%">
                 Hereketler
             </th>
+            @endrole
         </tr>
 
         @foreach($data as $sal)
@@ -165,13 +166,14 @@
                 <td>
                     {{$sal->date}}
                 </td>
-
+                @role('admin')
                 <td>
                     <a class="btn btn-primary" href="{{URL::to('edit/salaries/' .$sal->id) }}">Duzelis Et</a>
 
                     <a class="btn btn-danger" href="{{URL::to('del/salaries/'.$sal->id) }}"
                        onclick="return confirm('Silmek istediyinize eminsiniz?')">Sil</a>
                 </td>
+                @endrole
                 @endforeach
             </tr>
     </table>

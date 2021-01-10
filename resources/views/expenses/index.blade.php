@@ -84,7 +84,9 @@
                 <h2>Xercler</h2>
             </div>
             <div class="pull-right">
+                @role('admin')
                 <a class="btn btn-success" href="{{route('create.expenses')}}">Yeni Xerc elave et</a>
+                @endrole
             </div>
         </div>
         </div>
@@ -143,9 +145,11 @@
             <th width="10px"  style="text-align:center">
                 Status
             </th>
+            @role('admin')
             <th width="10px"  style="text-align:center">
                 Hereketler
             </th>
+            @endrole
         </tr>
 
         @foreach($data as $exp)
@@ -190,12 +194,16 @@
                         @endif
 
                 </td>
+
                 <td>
-                    <a class="btn btn-info" href="{{URL::to('show/expenses/' .$exp->id) }}">Goster</a>
+
+                    @role('admin')
                     <a class="btn btn-primary" href="{{URL::to('editexp/' .$exp->id) }}">Duzelis Et</a>
                     <a class="btn btn-danger" href="{{URL::to('delete/expenses/' .$exp->id) }}"
                        onclick="return confirm('Silmek istediyinize eminsiniz?')">Sil</a>
+                    @endrole
                 </td>
+
                 @endforeach
             </tr>
     </table>

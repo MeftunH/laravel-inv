@@ -30,9 +30,8 @@
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
-
-
                 <ul class="navbar-nav ml-auto">
+                    @can('show')
                     <li class="nav-item">
                         <a class="nav-link" href="/customer">Musteriler</a>
                     </li>
@@ -52,6 +51,7 @@
                     <li>
                         <a class="nav-link" href="/balance">Ayliq balans</a>
                     </li>
+                    @endcan
                     @guest
 
                         <li class="nav-item">

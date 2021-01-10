@@ -1,11 +1,18 @@
 @extends('layouts.app')
 @section('content')
     <br><br>
+    @role('developer')
+
+    Hello developer
+
+    @endrole
+
     <div class="row">
         <div class="col-lg-1 margin-tb" style="margin-top: 5px">
 
             <select onchange="window.location='<?php echo URL::to( Request::path());?>'+this.options[this.selectedIndex].value" name="months" class="form-control">
                 <option selected disabled>Ay sec</option>
+
 
                 @foreach ($month as $months)
 
@@ -49,11 +56,11 @@
 <div class="pull-left">
     <h2>Gelen Sifarisler</h2>
 </div>
+    @role('admin')
     <div class="pull-right">
         <a class="btn btn-success" href="{{route('create.product')}}">Yeni sifaris elave et</a>
-
 </div>
-
+@endrole
 </div>
 </div>
     @if($message=Session::get('success'))
@@ -117,9 +124,11 @@
             <th width="10%">
                 Status
             </th>
+            @role('admin')
             <th width="30%">
                 Hereketler
             </th>
+            @endrole
         </tr>
         <?php
         function time_elapsed_string($ptime)
@@ -240,12 +249,12 @@
                 </td>
             @endif
             <td>
-
+            @role('admin')
             <a class="btn btn-primary" href="{{URL::to('edit/product/' .$pro->id) }}">Duzelis Et</a>
-
                 <a class="btn btn-danger" href="{{URL::to('delete/product/' .$pro->id) }}"
             onclick="return confirm('Silmek istediyinize eminsiniz?')">Sil</a>
             </td>
+            @endrole
             @endforeach
         </tr>
     </table>
